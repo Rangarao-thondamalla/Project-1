@@ -1,0 +1,9 @@
+.loginForm{
+  border :3px  solid green;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 10px 8px 4px #888888;
+}
+button.btn.btn-primary {
+    margin: 10px;
+}
