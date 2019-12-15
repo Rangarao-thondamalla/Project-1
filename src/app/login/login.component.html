@@ -2,33 +2,34 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 loginForm">
-        <form action="" method="post" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <form action="" method="post">
              <div class="container">
                <div class="form-group">
-                      <label for="uname"><b>Username</b></label>
-                      <input type="text" class="form-control" required placeholder="Enter Username" name="username"  [(ngModel)]="form.username"  #username="ngModel">
-                      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
-                          <div *ngIf="username.errors.required">
-                                    Name is required.
-                           </div>
+                      <label for="username"><b>Username</b></label>
+                      <input type="text" class="form-control" placeholder="Enter Username" minlength="4" maxlength="25" required name="username" ngModel #username="ngModel" (change)='log(username)'>
+                      <div class="alert alert-danger" *ngIf='username.touched && !username.valid'>
+                        <div *ngIf="username.errors.required"> Username is required!!</div>
+                        <div *ngIf="username.errors.minlength">Username minimum to 4 and max 25 characters only! </div>
                       </div>
                </div>
                <div class="form-group">
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password"  class="form-control" placeholder="Enter Password" name="password" [(ngModel)]="form.password" #password="ngModel" required>
+                    <label for="Password"><b>Password</b></label>
+                    <input type="password"  minlength="4" maxlength="10" class="form-control" placeholder="Enter Password" name="password" ngModel #password="ngModel" required>
+                    <div class="alert alert-danger" *ngIf='password.touched && !password.valid'>
+                        <div *ngIf="password.errors.required">Password is required!!</div>
+                        <div *ngIf="password.errors.minlength">Password minimum to 4 and max 10 characters only! </div>
+                    </div>
                </div>
                 <div class="text-center"> 
                       <button type="submit" class="btn btn-primary center-block">Login</button>
                 </div> 
                  <div class="text-center"> 
-                    <p class="text-danger" style="font-size:24px;">Please Register to <a routerLink="/signup"> Click Here</a> </p>
+                    <p class="text-danger" style="font-size:24px;">Please Register to<a routerLink="/signup" routerLinkActive="active"> Click Here</a></p>
                 </div> 
             </div>
         </form>
     </div>
     <div class="col-md-3">
-      <p>user name :{{username}}</p>
-      <p>password :{{password}}</p>
     </div>
   </div>
 </div>

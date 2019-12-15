@@ -2,23 +2,40 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 loginForm">
-        <form action="" method="post">
+        <form action="#" method="post" name="f">
              <div class="container">
                <div class="form-group">
                       <label for="fname"><b>Full Name</b></label>
-                      <input type="text" class="form-control" placeholder="Enter Full Name" name="fullName" required>
+                      <input type="text" class="form-control" placeholder="Enter Full Name" name="fullName" ngModel #fullName="ngModel" minlength="4" maxlength="25" required>
+                      <div class="alert alert-danger" *ngIf="fullName.touched && !fullName.valid && fullName.submitted">
+                        <div *ngIf="fullName.errors.required">  Full Name is Required !</div>
+                        <div *ngIf="fullName.errors.minlength"> Full Name  minimum to 4 and max 25 characters only! </div>
+                      </div>
                </div>
               <div class="form-group">
                       <label for="email"><b>E-mail</b></label>
-                      <input type="email" class="form-control" placeholder="Enter Email" name="email" required>
+                      <input type="email" class="form-control" placeholder="Enter Email" name="email" required ngModel #email="ngModel" 
+                      pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+                       <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors.required">E-mail is Required !</div>
+                        <div *ngIf="email.errors.pattern">Enter the valid Email address</div>
+                      </div>
                </div>
                <div class="form-group">
                       <label for="dob"><b>Date Of Birth</b></label>
-                      <input type="date" class="form-control" placeholder="Enter DOB" name="dob" required>
+                      <input type="date" class="form-control" placeholder="Enter DOB" name="dob" ngModel #dob="ngModel" required>
+                      <div class="alert alert-danger" *ngIf="dob.touched && !dob.valid">
+                        <div *ngIf="email.errors.required">DOB is Required !</div>
+                      </div>
+                      
                </div>
                <div class="form-group">
                     <label for="psw"><b>Password</b></label>
-                    <input type="password"  class="form-control" placeholder="Enter Password" name="psw" required>
+                    <input type="password"  class="form-control" placeholder="Enter Password" name="password" ngModel #password="ngModel" minlength="4" maxlength="10" required>
+                    <div class="alert alert-danger" *ngIf='password.touched && !password.valid'>
+                        <div *ngIf="password.errors.required">Password is required!!</div>
+                        <div *ngIf="password.errors.minlength">Password minimum to 4 and max 10 characters only! </div>
+                    </div>
                </div>
                 <div class="form-group">
                       <label for="gender"><b style="padding-right:5px;">Gender</b></label>
@@ -31,10 +48,14 @@
                </div>
                <div class="form-group">
                   <label for="address"><b>Address</b></label>
-                  <textarea class="form-control" row="10"></textarea>
+                  <textarea class="form-control" row="10" ngModel name="address" #address="ngModel" required ></textarea>
+                   <div class="alert alert-danger" *ngIf='address.touched && !password.valid'>
+                        <div *ngIf="address.errors.required">Address is required!!</div>
+                      
+                    </div>
                </div>
                 <div class="text-center"> 
-                      <button type="submit" class="btn btn-primary center-block">Regitser</button>
+                      <button type="submit" class="btn btn-primary center-block" ngsubmit="return f">Regitser</button>
                 </div> 
                  <div class="text-center"> 
                     <p class="text-danger" style="font-size:24px;"><a routerLink="/login"> Click Here</a> To go Login Page </p>

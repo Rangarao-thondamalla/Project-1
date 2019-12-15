@@ -5,12 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  username = "";
-  password = "";
-  constructor() { }
-
-  ngOnInit() {
+export class LoginComponent {
+  log(x){
+    console.log(x);
   }
 
 }
