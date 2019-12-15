@@ -2,13 +2,14 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 loginForm">
-        <form action="#" method="post" name="f">
+        <form action="#" method="post" #signupForm="ngForm" appIdentityRevealed>
+            <div [hidden]="signupForm.submitted">
              <div class="container">
                <div class="form-group">
                       <label for="fname"><b>Full Name</b></label>
                       <input type="text" class="form-control" placeholder="Enter Full Name" name="fullName" ngModel #fullName="ngModel" minlength="4" maxlength="25" required>
-                      <div class="alert alert-danger" *ngIf="fullName.touched && !fullName.valid && fullName.submitted">
-                        <div *ngIf="fullName.errors.required">  Full Name is Required !</div>
+                      <div class="alert alert-danger" *ngIf="fullName.touched && !fullName.valid">
+                        <div *ngIf="fullName.errors.required"> Full Name is Required !</div>
                         <div *ngIf="fullName.errors.minlength"> Full Name  minimum to 4 and max 25 characters only! </div>
                       </div>
                </div>
@@ -48,21 +49,31 @@
                </div>
                <div class="form-group">
                   <label for="address"><b>Address</b></label>
-                  <textarea class="form-control" row="10" ngModel name="address" #address="ngModel" required ></textarea>
+                  <textarea class="form-control" row="10" ngModel name="address" #address="ngModel" required></textarea>
                    <div class="alert alert-danger" *ngIf='address.touched && !password.valid'>
                         <div *ngIf="address.errors.required">Address is required!!</div>
                       
                     </div>
                </div>
                 <div class="text-center"> 
-                      <button type="submit" class="btn btn-primary center-block" ngsubmit="return f">Regitser</button>
+                      <button type="submit" class="btn btn-primary center-block" [disabled]="signupForm.invalid">Regitser</button>
+                      <button type="button" class="btn btn-success"(click)="signupForm.resetForm({})">Reset</button>
                 </div> 
-                 <div class="text-center"> 
-                    <p class="text-danger" style="font-size:24px;"><a routerLink="/login"> Click Here</a> To go Login Page </p>
-                </div> 
-            </div>
+                 </div>
+                 </div>
+                 <div class="submitted-message" *ngIf="signupForm.submitted">
+                         <p class="text-success text-center" style="font-size:20px;">You've submitted your Details, <b>{{ signupForm.value.fullName }}!</b></p>
+                         <div class="text-center">
+                            <button class="btn btn-secondary"(click)="signupForm.resetForm({})">Add new Person</button>
+                        </div> 
+                        <br>
+                        <div class="text-center">
+                              <button class="btn btn-danger" routerLink="/login">Login Here</button>
+                        </div>
+                </div>
+                  
+    
         </form>
-        
     </div>
   </div>
 </div>
