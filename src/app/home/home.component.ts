@@ -6,7 +6,7 @@ import { Http } from '@angular/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-//name = "Ranga Rao Thondamalla"
+name = "Ranga Rao Thondamalla"
 users : any [];
 constructor(http : Http) {
     http.get("https://5df7ba4a4fdcb20014a483cc.mockapi.io/signup")
