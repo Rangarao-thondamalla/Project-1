@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule , ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -12,6 +13,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupService } from './signup/signup.service';
+import { HomeService } from './home/home.service';
 
 @NgModule({
   imports:      [ 
@@ -19,6 +21,7 @@ import { SignupService } from './signup/signup.service';
    FormsModule, 
    ReactiveFormsModule,
    HttpClientModule,
+   HttpModule,
    RouterModule.forRoot([
      {path:'', component: HomeComponent},
      {path:'login', component : LoginComponent},
@@ -28,6 +31,6 @@ import { SignupService } from './signup/signup.service';
    ],
   declarations: [ AppComponent, HelloComponent, HeaderComponent, SignupComponent, PagenotfoundComponent, LoginComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [SignupService]
+  providers: [SignupService, HomeService]
 })
 export class AppModule { }

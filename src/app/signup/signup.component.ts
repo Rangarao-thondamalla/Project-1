@@ -8,7 +8,7 @@ import { SignupService } from './signup.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  userModel = new User('rangarao', 't.rangarao007@gmail.com', 9676001985, "20-7-1994", 'qwerty', 'male','helolo' );
+  userModel = new User('rangarao', 't.rangarao007@gmail.com', 9676001985, new Date(), 'qwerty', 'male','helolo');
   constructor( private signupservice : SignupService){}
   onSubmit(){
     this.signupservice.enroll(this.userModel)
