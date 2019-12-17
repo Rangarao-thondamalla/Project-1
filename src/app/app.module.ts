@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupService } from './signup/signup.service';
 import { HomeService } from './home/home.service';
+import { NoAccessComponent } from './no-access/no-access.component';
 
 @NgModule({
   imports:      [ 
@@ -26,10 +27,11 @@ import { HomeService } from './home/home.service';
      {path:'', component: HomeComponent},
      {path:'login', component : LoginComponent},
      {path:'signup', component: SignupComponent},
-     {path:'**' , component : PagenotfoundComponent}
+     {path:'**' , component : PagenotfoundComponent},
+      { path: 'no-access', component: NoAccessComponent }  
    ])
    ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, SignupComponent, PagenotfoundComponent, LoginComponent, HomeComponent ],
+  declarations: [ AppComponent, HelloComponent, HeaderComponent, SignupComponent, PagenotfoundComponent, LoginComponent, HomeComponent, NoAccessComponent ],
   bootstrap:    [ AppComponent ],
   providers: [SignupService, HomeService]
 })
