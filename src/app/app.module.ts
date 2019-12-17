@@ -17,6 +17,9 @@ import { HomeService } from './home/home.service';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AuthService } from './auth/auth.service';
 import { fakeBackendProvider } from './auth/fakeBackendProvider';
+import { MockBackend } from '@angular/http/testing';
+import { BaseRequestOptions, Http, Response, ResponseOptions } from '@angular/http';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports:      [ 
@@ -29,12 +32,18 @@ import { fakeBackendProvider } from './auth/fakeBackendProvider';
      {path:'', component: HomeComponent},
      {path:'login', component : LoginComponent},
      {path:'signup', component: SignupComponent},
+    {path:'logout', component: LogoutComponent},
      {path:'**' , component : PagenotfoundComponent},
     {path: 'no-access', component: NoAccessComponent }  
    ])
    ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, SignupComponent, PagenotfoundComponent, LoginComponent, HomeComponent, NoAccessComponent ],
+  declarations: [ AppComponent, HelloComponent, HeaderComponent, SignupComponent, PagenotfoundComponent, LoginComponent, HomeComponent, NoAccessComponent, LogoutComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [SignupService, HomeService, AuthService,fakeBackendProvider]
+  providers: [SignupService, HomeService, 
+  AuthService,
+  fakeBackendProvider,
+  MockBackend,
+  BaseRequestOptions
+  ]
 })
 export class AppModule { }
