@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 loginForm">
-        <form action="#" method="post" method="post" #loginForm="ngForm" appIdentityRevealed>
-           <div [hidden]="loginForm.submitted">
+        <form action="#" method="post" method="post" #loginForm="ngForm" appIdentityRevealed (ngSubmit)="signIn(loginForm.value)>
              <div class="container">
                <div class="form-group">
                       <label for="username"><b>Username</b></label>
@@ -30,15 +29,10 @@
                       <button class="btn btn-danger" routerLink="/signup">Please Register Here</button>
                     </p>
                 </div> 
-            </div>
-           </div>
-           <div class="submitted-message" *ngIf="loginForm.submitted">
-                  <p>You Will Redirecting to Home Page</p>
-           </div>
+              </div>
         </form>
     </div>
-    <div class="col-md-3">
-    </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
 

@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { SignupService } from './signup/signup.service';
 import { HomeService } from './home/home.service';
 import { NoAccessComponent } from './no-access/no-access.component';
+import { AuthService } from './auth/auth.service';
+import { fakeBackendProvider } from './auth/fakeBackendProvider';
 
 @NgModule({
   imports:      [ 
@@ -33,6 +35,6 @@ import { NoAccessComponent } from './no-access/no-access.component';
    ],
   declarations: [ AppComponent, HelloComponent, HeaderComponent, SignupComponent, PagenotfoundComponent, LoginComponent, HomeComponent, NoAccessComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [SignupService, HomeService]
+  providers: [SignupService, HomeService, AuthService,fakeBackendProvider]
 })
 export class AppModule { }
