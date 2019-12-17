@@ -4,6 +4,7 @@
         <h2 class="text-center">Welcome <span  class="text-info">{{name}}</span></h2>
             <div class="row">
               <div class="col-md-12">
+                <div class="table-responsive">
                 <table class="table-inline table table-striped table-dark">
                   <thead>
                      <tr>
@@ -31,10 +32,7 @@
                   </tr>
                   </tbody>
                 </table>
-                <ng-container matColumnDef="users">
-                    <th mat-header-cell *matHeaderCellDef> users </th>
-                    <td mat-cell *matCellDef="let x"> {{x.fullName}} </td>
-                </ng-container>
+                </div>
               </div>
             </div>
      </div>
