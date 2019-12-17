@@ -28,7 +28,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
      {path:'login', component : LoginComponent},
      {path:'signup', component: SignupComponent},
      {path:'**' , component : PagenotfoundComponent},
-      { path: 'no-access', component: NoAccessComponent }  
+    {path: 'no-access', component: NoAccessComponent }  
    ])
    ],
   declarations: [ AppComponent, HelloComponent, HeaderComponent, SignupComponent, PagenotfoundComponent, LoginComponent, HomeComponent, NoAccessComponent ],
