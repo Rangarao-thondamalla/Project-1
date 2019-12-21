@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { UsersService } from './services/users.service';
+import { UsersService } from '../services/users.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

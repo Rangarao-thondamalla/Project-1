@@ -16,6 +16,8 @@ import { SignupService } from './signup/signup.service';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { LogoutComponent } from './logout/logout.component';
 
+import { UsersService } from './services/users.service';
+
 @NgModule({
   imports:      [ 
   BrowserModule,
@@ -34,7 +36,7 @@ import { LogoutComponent } from './logout/logout.component';
    ],
   declarations: [ AppComponent, HelloComponent, HeaderComponent, SignupComponent, PagenotfoundComponent, LoginComponent, HomeComponent, NoAccessComponent, LogoutComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [SignupService
+  providers: [SignupService ,UsersService
   ]
 })
 export class AppModule { }
