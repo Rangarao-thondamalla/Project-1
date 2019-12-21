@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { UsersService } from './services/users.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,19 +9,18 @@ import { Http } from '@angular/http';
 export class HomeComponent implements OnInit {
 name = "Ranga Rao Thondamalla"
 users : any [];
-url ="https://5df7ba4a4fdcb20014a483cc.mockapi.io/signup";
-constructor(private http : Http) {
-   this.http.get(this.url)
-    .subscribe(response=> {
-      this.users = response.json();
-    });
-}
+constructor(private usersService : UsersService) {}
 deleteUsers(x) {
-      this.http.delete(this.url + '/' + x.id)
+     this.usersService.deleteUsers(x)
       .subscribe(response =>{
         let index = this.users.indexOf(x);
         this.users.splice(index,1);
       })
     };
-  ngOnInit() {}
+  ngOnInit() {
+    this.usersService.getUsers()
+    .subscribe(response=> {
+      this.users = response.json();
+    });
+  }
 }
