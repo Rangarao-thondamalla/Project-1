@@ -15,12 +15,11 @@ constructor(private http : Http) {
       this.users = response.json();
     });
 }
-deleteUsers(user) {
-      this.http.delete(this.url + '/' + user)
+deleteUsers(x) {
+      this.http.delete(this.url + '/' + x.id)
       .subscribe(response =>{
-        let index = this.users.indexOf(user);
+        let index = this.users.indexOf(x);
         this.users.splice(index,1);
-        console.log(user);
       })
     };
   ngOnInit() {}
