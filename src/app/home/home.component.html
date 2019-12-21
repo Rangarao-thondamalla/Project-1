@@ -16,7 +16,6 @@
                         <th scope="col">Password</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Address</th>
-                        
                     </tr>
                   </thead>
                   <tbody>
@@ -29,6 +28,9 @@
                     <td>{{x.password}}</td>
                     <td> {{x.gender}}</td>
                     <td>{{x.address}}</td>
+                    <td>
+                      <button class="btn btn-danger" (click)="deleteUsers(user)">Delete</button>
+                    </td>
                   </tr>
                   </tbody>
                 </table>
