@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 loginForm">
-        <form action="#" method="post" method="post" #loginForm="ngForm" appIdentityRevealed (ngSubmit)="signIn(loginForm.value)">
+        <form action="#" method="post" method="post" #loginForm="ngForm" appIdentityRevealed>
              <div class="container">
                <div *ngIf="invalidLogin" class="alert alert-danger">  
                     Invalid username and/or password.  
               </div>
                <div class="form-group">
                       <label for="username"><b>Username</b></label>
-                      <input type="text" class="form-control" placeholder="Enter Username" minlength="4" maxlength="25" required name="username" ngModel #username="ngModel" (change)='log(username)'>
+                      <input type="text" class="form-control" placeholder="Enter Username" minlength="4" maxlength="25" required name="username" ngModel #username="ngModel">
                       <div class="alert alert-danger" *ngIf='username.touched && !username.valid'>
                         <div *ngIf="username.errors.required"> Username is required!!</div>
                         <div *ngIf="username.errors.minlength">Username minimum to 4 and max 25 characters only! </div>
