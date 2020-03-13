@@ -26,7 +26,7 @@ import { UsersService } from './services/users.service';
    HttpClientModule,
    HttpModule,
    RouterModule.forRoot([
-     {path:'', component: HomeComponent},
+     {path:'', component: HomeComponent },
      {path:'login', component : LoginComponent},
      {path:'signup', component: SignupComponent},
      {path:'logout', component: LogoutComponent},
